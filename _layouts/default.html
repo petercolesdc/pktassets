@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/style.css">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+    <section class="image_gal">
+      {% for image in site.static_files %}
+        {% if image.path contains 'assets/img' %}
+          <a href="{{ image.path }}"><img src="{{ image.path }}" alt="{{ image.basename }}">
+          <span>{{ image.basename }} | {{ image.modified_time | date: "%b %d, %Y" }}</span></a>
+        {% endif %}
+      {% endfor %}
+    </section>
+  </body>
+</html>
